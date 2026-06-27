@@ -3,111 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KANAGAWA YOUTH ACTION FES</title>
+    <title>PEACE PRIDE | 神奈川ユースアクションフェス2026</title>
     <style>
-        /* ベイスターズ風のブルーを基調としたカラーパレット */
+        /* カラーパレット（PEACE PRIDEブルーを基調） */
         :root {
-            --bay-blue: #003F8E;
-            --light-blue: #E6F0FA;
+            --main-blue: #2B90D9; /* スカイブルー */
+            --deep-blue: #003F8E; /* ベイスターズ風ディープブルー */
             --accent-gold: #C2A059;
             --text-dark: #1A1A1A;
-        }
-        body {
-            font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-            margin: 0;
-            background-color: #FAFAFA;
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
-        /* 画面いっぱいのトップ画像 */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 63, 142, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1540822836262-1b156736561e?auto=format&fit=crop&q=80&w=1600') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            position: relative;
-        }
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 900;
-            letter-spacing: 0.1em;
-            line-height: 1.2;
-            margin: 0;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
-        }
-
-        /* セクション共通設定 */
-        .section {
-            padding: 100px 20px;
-            max-width: 800px;
-            margin: 0 auto;
+            --bg-light: #F4F7F9;
         }
         
-        /* スクロールでフワッと現れるアニメーション（スターガイド風） */
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            margin: 0;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* アニメーション用クラス */
         .fade-in {
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* 大会意義の見出し */
-        .title {
-            font-size: 2.5rem;
-            color: var(--bay-blue);
+        /* ヒーローエリア（トップ画面） */
+        .hero {
+            height: 100vh;
+            /* 鮮やかなブルーのグラデーション背景 */
+            background: linear-gradient(135deg, rgba(43,144,217,0.9) 0%, rgba(0,63,142,0.9) 100%), url('https://images.unsplash.com/photo-1540822836262-1b156736561e?auto=format&fit=crop&q=80&w=1600') center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
             text-align: center;
-            margin-bottom: 50px;
-            font-weight: 900;
-        }
-        .message-box {
-            background: white;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--accent-gold);
-            font-size: 1.1rem;
-            line-height: 2;
+            position: relative;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
-        /* 開催概要カード */
-        .info-wrapper {
-            background-color: var(--bay-blue);
-            color: white;
-            padding: 60px 20px;
-            margin-top: 60px;
+        .hero-subtitle {
+            font-size: 1rem;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
-        .info-grid {
-            max-width: 800px;
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            line-height: 1.1;
+            margin: 0 0 15px 0;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .hero-catch {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .hero-date-venue {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 15px 30px;
+            border-radius: 50px;
+        }
+        
+        .hero-date-venue p {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* スクロールダウン指示アイコン */
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-15px) translateX(-50%); }
+            60% { transform: translateY(-7px) translateX(-50%); }
+        }
+
+        /* 共通セクション */
+        .section {
+            padding: 80px 20px;
+            max-width: 600px; /* スマホで見やすい幅に制限 */
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
         }
-        .info-item {
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 30px;
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--deep-blue);
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+        }
+
+        /* メッセージエリア */
+        .message-box {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-top: 5px solid var(--main-blue);
             text-align: center;
         }
-        .info-item h3 {
-            color: var(--accent-gold);
+
+        .message-box h3 {
+            color: var(--deep-blue);
+            font-size: 1.5rem;
             margin-top: 0;
-            font-size: 1.2rem;
+            margin-bottom: 20px;
+            line-height: 1.4;
         }
-        .info-item p {
-            font-size: 1.8rem;
+
+        .message-box p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        /* 当日用 NEWS エリア */
+        .news-container {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .news-item {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+        }
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-time {
+            color: var(--main-blue);
             font-weight: bold;
+            font-size: 0.9rem;
+            min-width: 60px;
+            padding-top: 3px;
+        }
+
+        .news-text {
+            font-size: 1rem;
+            line-height: 1.5;
             margin: 0;
         }
 
+        .news-tag {
+            display: inline-block;
+            background: #FFEBEB;
+            color: #D32F2F;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        /* スマホ向け調整 */
         @media (max-width: 600px) {
-            .hero h1 { font-size: 2.5rem; }
-            .info-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 3.2rem; }
+            .hero-date-venue p { font-size: 1.2rem; }
+            .section { padding: 60px 20px; }
         }
     </style>
 </head>
@@ -115,34 +199,45 @@
 
     <div class="hero">
         <div class="fade-in">
-            <h1>KANAGAWA<br>YOUTH<br>ACTION FES</h1>
+            <div class="hero-subtitle">神奈川ユースアクションフェス2026</div>
+            <h1 class="hero-title">PEACE<br>PRIDE</h1>
+            <div class="hero-catch">歌おう！世界へ、未来へ。</div>
+            <div class="hero-date-venue">
+                <p>2026.9.12 (Sat)<br><span style="font-size:1rem; font-weight:normal;">YOKOHAMA STADIUM</span></p>
+            </div>
+        </div>
+        <div class="scroll-down">
+            ▼ SCROLL
         </div>
     </div>
 
     <div class="section">
-        <h2 class="title fade-in">大会意義</h2>
         <div class="message-box fade-in">
-            <p style="font-weight: bold; font-size: 1.4rem; color: var(--bay-blue);">「平和」は、一人の青年の熱と力から生まれる。</p>
-            <p>明年の「原水爆禁止宣言」70周年へ、平和運動原点の地・神奈川の青年として、歌やダンスに平和を願う心を込め、ここから新たな前進を開始します。</p>
-            <p>あなたも、私たちと共に、希望の未来を創りませんか。</p>
+            <h3>「平和」は<br>「わたし」から始まる</h3>
+            <p>日々の暮らしの中に<br>平和への確かな一歩はある。</p>
+            <p>誰もが「平和」を創る『主体者』。<br>その誇り (PRIDE)を胸に、<br>3万人の願いを、誓いを、<br>歌声に託します。</p>
         </div>
     </div>
 
-    <div class="info-wrapper">
-        <h2 class="title fade-in" style="color: white;">開催概要</h2>
-        <div class="info-grid fade-in">
-            <div class="info-item">
-                <h3>日時</h3>
-                <p>9.12 (Sun)<br><span style="font-size:1.2rem">17:30～19:00</span></p>
+    <div class="section" style="padding-top: 20px;">
+        <h2 class="section-title fade-in">TODAY'S NEWS</h2>
+        <div class="news-container fade-in">
+            <div class="news-item">
+                <div class="news-time">16:45</div>
+                <div class="news-text">
+                    <span class="news-tag">重要</span>
+                    スタジアム周辺が大変混雑しております。入場ゲートには余裕を持ってお越しください。
+                </div>
             </div>
-            <div class="info-item">
-                <h3>会場</h3>
-                <p>横浜スタジアム</p>
+            <div class="news-item">
+                <div class="news-time">16:30</div>
+                <div class="news-text">
+                    開場いたしました。お席でのご飲食（アルコールを除く）は可能です。
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- スクロールアニメーションを動かすための魔法のスクリプト -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const elements = document.querySelectorAll('.fade-in');
@@ -152,7 +247,7 @@
                         entry.target.classList.add('visible');
                     }
                 });
-            }, { threshold: 0.1 });
+            }, { threshold: 0.15 });
 
             elements.forEach(el => observer.observe(el));
             
