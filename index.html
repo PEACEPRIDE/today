@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KANAGAWA YOUTH ACTION FES</title>
+    <style>
+        /* ベースのデザイン設定 */
+        :root {
+            --primary-color: #0056b3; /* 青年・平和をイメージしたブルー */
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+        }
+        
+        /* ヒーローエリア（トップの大きな画像部分） */
+        .hero {
+            /* 横浜スタジアムや青空を連想させるグラデーション（後で画像に差し替え可能） */
+            background: linear-gradient(rgba(0, 40, 80, 0.7), rgba(0, 86, 179, 0.7)), url('https://images.unsplash.com/photo-1540822836262-1b156736561e?auto=format&fit=crop&q=80&w=1600') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        /* メインコンテンツエリア */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+
+        /* 大会意義セクション */
+        .section-title {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        .message {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 50px;
+            padding: 0 20px;
+        }
+
+        /* 開催情報（日時・会場）カード */
+        .info-card {
+            background: #f0f7ff;
+            border-left: 5px solid var(--primary-color);
+            padding: 25px;
+            margin-bottom: 40px;
+            border-radius: 4px;
+        }
+        .info-item {
+            margin-bottom: 15px;
+        }
+        .info-item strong {
+            display: block;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        .info-item span {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* ボタン群 */
+        .button-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #003d82;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background-color: #fff;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        .btn-secondary:hover {
+            background-color: #f0f7ff;
+            transform: translateY(-2px);
+        }
+
+        /* スマホ用調整 */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .button-group { flex-direction: column; }
+            .btn { text-align: center; width: 100%; box-sizing: border-box; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>KANAGAWA<br>YOUTH<br>ACTION FES</h1>
+        <p>平和運動原点の地・神奈川から、新たな前進を。</p>
+    </header>
+
+    <main class="container">
+        <div style="text-align: center;">
+            <h2 class="section-title">大会意義</h2>
+        </div>
+        <div class="message">
+            <p><strong>「平和」は、一人の青年の熱と力から生まれる。</strong></p>
+            <p>明年の「原水爆禁止宣言」70周年へ、平和運動原点の地・神奈川の青年として、歌やダンスに平和を願う心を込め、ここから新たな前進を開始します。</p>
+            <p>あなたも、私たちと共に、希望の未来を創りませんか。</p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-item">
+                <strong>日時</strong>
+                <span>9.12 (Sun) 17:30～19:00</span>
+            </div>
+            <div class="info-item">
+                <strong>会場</strong>
+                <span>横浜スタジアム</span>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <a href="#" class="btn btn-primary">アンケートはこちら</a>
+            <a href="#" class="btn btn-secondary">動画を見る</a>
+        </div>
+    </main>
+
+</body>
+</html>
